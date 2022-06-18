@@ -1,36 +1,32 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="col-12 mx-auto">
-    <h1 class="c">This is Our Home, Sweet Home</h1>
-</div>
-
 <div class="col-12 mx-auto mb-5">
     <div class="col-11 mx-auto">
         <div class="row">
-            <div class="col-2 mx-auto c p-4">
+            <div class="col-3 mx-auto c p-4">
                 <div class="row">
-                    <h3>To Buy</h3>
-                    <a type="button" class="btn btn-outline-info" href="#">Create</a>
+                    <h4>Para Crear Una Compra</h4>
+                    <a type="button" class="btn btn-outline-info" href="{{ url_for ('createbuyit') }}">Create</a>
                     <hr class="hr mt-3 mb-2">
-                    <a class="btn btn-success btn-sm mt-2" href="#">Close List</a>
+                    <h4 class="mt-3">Para Cerrar La Lista</h4>
+                    <a class="btn btn-success btn-sm mt-2" href="{{ url_for ('closeBuy') }}">Cerrar La Lista De Compras</a>
                 </div>
             </div>
 
-            <div class="col-5 mx-auto c p-4">
-                <h2 class="mb-5">To Buy</h2>
+            <div class="col-8 mx-auto c p-4">
+                <h2 class="mb-5">Lista de Compras</h2>
                 {% if objBuy %}
                     {% for item in objBuy %}
                         <div class="col-lg-8 mx-auto row mb-3 ">
                             <div class="container col-7">
                                 <p>{{ item.toBuy }}</p>
-                                <p>{{ item.status }}</p>
                             </div>
                             <div class="container col-2">
-                                <td><a href="#" class="btn btn-info btn-sm">Update</a></td>
+                                <td><a href="{{ url_for ('updatebuyit', id=item.id) }}" class="btn btn-info btn-sm">Update</a></td>
                             </div>
                             <div class="container col-2">
-                                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td><a href="{{ url_for ('deletebuyit', id=item.id) }}" class="btn btn-danger btn-sm">Delete</a></td>
                             </div>
                         </div>
                     {% endfor %}

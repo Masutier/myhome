@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="col-12 mx-auto mb-5">
+    <div class="col-11 mx-auto c">
+
+        {% if history %}
+            <table class="table table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Item</th>
+                        <th>Planeado</th>
+                        <th>Comprado</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in history %}
+                        <tr>
+                            <th>{{ item.id }}</th>
+                            <th>{{ item.toBuy }}</th>
+                            <td>{{ item.dateStart }}</td>
+                            <td>{{ item.dateEnd }}</td>
+                            <td>{{ item.status }}</td>
+                        </tr>
+                    {% endfor %}
+                <tbody>
+            </table>
+        {% else %}
+            <p>No hay Items en la lista</p>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock content %}

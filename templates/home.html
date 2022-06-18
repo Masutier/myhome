@@ -1,69 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="col-12 mx-auto">
-    <h1 class="c">This is Our Home, Sweet Home</h1>
-</div>
-
 <div class="col-12 mx-auto mb-5">
     <div class="col-11 mx-auto">
-        <div class="row">
-            <div class="col-5 mx-auto c p-4">
-                <h2 class="mb-5">To Do</h2>
-                {% if objTodo %}
-                    {% for item in objTodo %}
-                        <div class="col-lg-8 mx-auto row mb-3 ">
-                            <div class="container col-7">
-                                <p>{{ item.todo }}</p>
-                            </div>
-                            <div class="container col-2">
-                                <td><a href="#" class="btn btn-info btn-sm">Update</a></td>
-                            </div>
-                            <div class="container col-2">
-                                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>No hay Items</p>
-                {% endif %}
-            </div>
 
-            <div class="col-2 mx-auto c p-4">
-                <div class="row">
-                    <h3>To Do</h3>
-                    <a type="button" class="btn btn-outline-secondary"href="#">Create</a>
-                    <hr class="hr mt-3 mb-2">
+        <div class="col-8 mx-auto c mt-5 mb-4">
+            <h4>Tenemos {{ objBuycount }} Objetos listos para comprar</h4>
+        </div>
 
-                    <h3>To Buy</h3>
-                    <a type="button" class="btn btn-outline-info" href="#">Create</a>
-                    <hr class="hr mt-3 mb-2">
+        <div class="col-8 mx-auto c mb-4">
+            <h4>Tenemos {{ objDoitount }} Tareas listas para hacer</h4>
+        </div>
 
-                    <a class="btn btn-success btn-sm mt-2" href="#">Close List</a>
-                </div>
-            </div>
-
-            <div class="col-5 mx-auto c p-4">
-                <h2 class="mb-5">To Buy</h2>
-                {% if objBuy %}
-                    {% for item in objBuy %}
-                        <div class="col-lg-8 mx-auto row mb-3 ">
-                            <div class="container col-7">
-                                <p>{{ item.toBuy }}</p>
-                                <p>{{ item.status }}</p>
-                            </div>
-                            <div class="container col-2">
-                                <td><a href="#" class="btn btn-info btn-sm">Update</a></td>
-                            </div>
-                            <div class="container col-2">
-                                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>No hay Items</p>
-                {% endif %}
-            </div>
+        <div class="col-8 mx-auto c mb-4">
+            <h4>Tenemos {{ objHistcount }} Objetos en Historia</h4>
         </div>
 
     </div>

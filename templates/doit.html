@@ -1,34 +1,30 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="col-12 mx-auto">
-    <h1 class="c">This is Our Home, Sweet Home</h1>
-</div>
-
 <div class="col-12 mx-auto mb-5">
     <div class="col-11 mx-auto">
         <div class="row">
-            <div class="col-2 mx-auto c p-4">
+            <div class="col-3 mx-auto c p-4">
                 <div class="row">
-                    <h3>To Do</h3>
-                    <a type="button" class="btn btn-outline-secondary"href="#">Create</a>
+                    <h3>Crear Tarea Por Hacer</h3>
+                    <a type="button" class="btn btn-outline-info"href="{{ url_for ('createdoit') }}">Crear Tarea</a>
 
                 </div>
             </div>
 
             <div class="col-8 mx-auto c p-4">
-                <h2 class="mb-5">To Do</h2>
-                {% if objTodo %}
-                    {% for item in objTodo %}
+                <h2 class="mb-5">Tareas Por Hacer</h2>
+                {% if objDoit %}
+                    {% for item in objDoit %}
                         <div class="col-lg-8 mx-auto row mb-3 ">
                             <div class="container col-7">
                                 <p>{{ item.todo }}</p>
                             </div>
                             <div class="container col-2">
-                                <td><a href="#" class="btn btn-info btn-sm">Update</a></td>
+                                <td><a href="{{ url_for ('updatedoit', id=item.id) }}" class="btn btn-info btn-sm">Update</a></td>
                             </div>
                             <div class="container col-2">
-                                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td><a href="{{ url_for ('deletedoit', id=item.id) }}" class="btn btn-danger btn-sm">Delete</a></td>
                             </div>
                         </div>
                     {% endfor %}
