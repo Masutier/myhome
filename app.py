@@ -38,6 +38,14 @@ class Todo(db.Model):
         return self.todo
 
 
+class Receta(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    video = db.Column(db.string(100), nullable=False)
+
+    def __repr__(self):
+        return self.todo
+
+
 # Home
 @app.route('/')
 def home():
@@ -175,7 +183,6 @@ def historyBuy():
 
 @app.route("/closeBuy")
 def closeBuy():
-
     buyObj = Buy.query.filter_by(status='1')
     if not buyObj:
         flash("No Items en la lista!")
@@ -198,6 +205,17 @@ def closeBuy():
 
         return render("historyBuy.html", buyObj=buyObj)
 
+
+app.route('/recetas')
+def recetas():
+
+    return
+
+
+app.route('\createreceta')
+def createreceta():
+
+    return
 
 # Forms
 class InputForm(FlaskForm):
